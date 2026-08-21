@@ -144,7 +144,7 @@
     width: 100%;
     height: clamp(240px, 34vw, 400px);
     object-fit: cover;
-    object-position: 35% 28%;
+    object-position: 38% 58%;
     display: block;
     filter: saturate(0.92) contrast(1.02);
   }
@@ -517,6 +517,44 @@
     transition: background 0.2s ease;
   }
   .form-submit:hover{ background: var(--gold-light); }
+  /* ---------- Accordion hover flourish ---------- */
+  .btn-primary, .btn-secondary, .slide-arrow, .slide-pause, .form-submit{
+    position: relative;
+    overflow: visible;
+  }
+  .btn-primary::after, .btn-secondary::after, .slide-arrow::after,
+  .slide-pause::after, .form-submit::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    width: 4px;
+    height: 0;
+    border-left: 1px solid rgba(246,232,205,.75);
+    border-right: 1px solid rgba(246,232,205,.75);
+    background: repeating-linear-gradient(90deg,
+      transparent 0 3px,
+      rgba(201,162,39,.9) 3px 4px);
+    clip-path: polygon(50% 0, 100% 0, 82% 100%, 18% 100%, 0 0);
+    transform: translateX(-50%) scaleX(.15);
+    transform-origin: top center;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .btn-primary:hover::after, .btn-secondary:hover::after, .slide-arrow:hover::after,
+  .slide-pause:hover::after, .form-submit:hover::after,
+  .btn-primary:focus-visible::after, .btn-secondary:focus-visible::after,
+  .slide-arrow:focus-visible::after, .slide-pause:focus-visible::after,
+  .form-submit:focus-visible::after{
+    animation: tiny-bellows .48s ease-out forwards;
+  }
+  @keyframes tiny-bellows{
+    0%{ width:4px; height:0; transform:translateX(-50%) scaleX(.15); opacity:0; }
+    35%{ width:32px; height:8px; transform:translateX(-50%) scaleX(1); opacity:1; }
+    65%{ width:28px; height:15px; transform:translateX(-50%) scaleX(.92); opacity:1; }
+    100%{ width:22px; height:21px; transform:translateX(-50%) scaleX(.82); opacity:.9; }
+  }
+
   .form-note{
     font-size: 0.78rem;
     color: var(--cream-dim);
