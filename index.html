@@ -570,15 +570,15 @@
   }
 
   /* ---------- Responsive ---------- */
-  @media (max-width: 860px){
-    .about-grid{ grid-template-columns: 1fr; gap: 40px; }
-    .about-figure{ max-width: 480px; margin: 0 auto; }
-    .about-slideshow{ padding: 10px 10px 54px; }
-    .about-slides{ aspect-ratio: 3 / 4; }
-    .slide-arrow{ width: 38px; height: 38px; }
-    .slide-prev{ left: 16px; }
-    .slide-next{ right: 16px; }
-    .about-slide figcaption{ padding: 30px 15px 14px; font-size: .88rem; }
+ @media (max-width: 860px){
+  .about-grid{ grid-template-columns: 1fr; gap: 40px; }
+  .about-figure{ width: 100%; max-width: none; margin: 0 auto; }
+  .about-slideshow{ width: 100%; padding: 10px 10px 54px; }
+  .about-slides{ width: 100%; aspect-ratio: 3 / 4; }
+  .slide-arrow{ width: 38px; height: 38px; }
+  .slide-prev{ left: 16px; }
+  .slide-next{ right: 16px; }
+  .about-slide figcaption{ padding: 30px 15px 14px; font-size: .88rem; }
 
     .services-grid{ grid-template-columns: 1fr; }
     .booking-shell{ grid-template-columns: 1fr; }
